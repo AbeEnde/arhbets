@@ -21,7 +21,7 @@
     "enableTranslation": true,
     "entities": ["RequestForm", "Hospital", "Department", "Request"],
     "entitySuffix": "",
-    "herokuAppName": "ahbets",
+    "herokuAppName": "ahbet",
     "herokuDeployType": "git",
     "herokuJavaVersion": "11",
     "jhiPrefix": "jhi",
