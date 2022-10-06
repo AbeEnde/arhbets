@@ -1,0 +1,18 @@
+<div class="container">
+<table class="tablewid">
+<thead class="table-header">
+    <tr>
+        <th>user name</th>
+        <th>facility</th>
+        <th>total</th>
+
+    </tr>
+</thead>
+<tr *ngFor="let dat of data " class="table-row">
+<td>{{dat.userName}}</td>
+<td>{{dat.hospName}}</td>
+<td>{{dat.total}}</td>
+
+</tr>
+</table>
+</div>

@@ -1,0 +1,163 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2
+        id="jhi-request-form-heading"
+        data-cy="RequestFormCreateUpdateHeading"
+        jhiTranslate="ahbetsApp.requestForm.home.createOrEditLabel"
+      >
+        Create or edit a Request Form
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+          <div *ngIf="editForm.get('name')!.invalid && (editForm.get('name')!.dirty || editForm.get('name')!.touched)">
+            <small class="form-text text-danger" *ngIf="editForm.get('name')?.errors?.required" jhiTranslate="entity.validation.required">
+              This field is required.
+            </small>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.sex" for="field_sex">Sex</label>
+          <input type="text" class="form-control" name="sex" id="field_sex" data-cy="sex" formControlName="sex" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.profession" for="field_profession">Profession</label>
+          <input
+            type="text"
+            class="form-control"
+            name="profession"
+            id="field_profession"
+            data-cy="profession"
+            formControlName="profession"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.c_wzone" for="field_c_wzone">C Wzone</label>
+          <input type="text" class="form-control" name="c_wzone" id="field_c_wzone" data-cy="c_wzone" formControlName="c_wzone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.c_wworeda" for="field_c_wworeda">C Wworeda</label>
+          <input type="text" class="form-control" name="c_wworeda" id="field_c_wworeda" data-cy="c_wworeda" formControlName="c_wworeda" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.c_whealthfacility" for="field_c_whealthfacility"
+            >C Whealthfacility</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="c_whealthfacility"
+            id="field_c_whealthfacility"
+            data-cy="c_whealthfacility"
+            formControlName="c_whealthfacility"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.firstchoice" for="field_firstchoice">Firstchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstchoice"
+            id="field_firstchoice"
+            data-cy="firstchoice"
+            formControlName="firstchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.secondchoice" for="field_secondchoice">Secondchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="secondchoice"
+            id="field_secondchoice"
+            data-cy="secondchoice"
+            formControlName="secondchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.thirdchoice" for="field_thirdchoice">Thirdchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="thirdchoice"
+            id="field_thirdchoice"
+            data-cy="thirdchoice"
+            formControlName="thirdchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.selfexpirence" for="field_selfexpirence">Selfexpirence</label>
+          <div class="input-group">
+            <input
+              id="field_selfexpirence"
+              data-cy="selfexpirence"
+              type="text"
+              class="form-control"
+              name="selfexpirence"
+              ngbDatepicker
+              #selfexpirenceDp="ngbDatepicker"
+              formControlName="selfexpirence"
+            />
+            <button type="button" class="btn btn-secondary" (click)="selfexpirenceDp.toggle()">
+              <fa-icon icon="calendar-alt"></fa-icon>
+            </button>
+          </div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.saposeexperience" for="field_saposeexperience"
+            >Saposeexperience</label
+          >
+          <input
+            type="text"
+            class="form-control"
+            name="saposeexperience"
+            id="field_saposeexperience"
+            data-cy="saposeexperience"
+            formControlName="saposeexperience"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.requestForm.no" for="field_no">No</label>
+          <input type="text" class="form-control" name="no" id="field_no" data-cy="no" formControlName="no" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

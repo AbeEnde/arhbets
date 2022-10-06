@@ -1,0 +1,76 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="requestForm">
+      <h2 data-cy="requestFormDetailsHeading"><span jhiTranslate="ahbetsApp.requestForm.detail.title">Request Form</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ requestForm.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.name">Name</span></dt>
+        <dd>
+          <span>{{ requestForm.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.sex">Sex</span></dt>
+        <dd>
+          <span>{{ requestForm.sex }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.profession">Profession</span></dt>
+        <dd>
+          <span>{{ requestForm.profession }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.c_wzone">C Wzone</span></dt>
+        <dd>
+          <span>{{ requestForm.c_wzone }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.c_wworeda">C Wworeda</span></dt>
+        <dd>
+          <span>{{ requestForm.c_wworeda }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.c_whealthfacility">C Whealthfacility</span></dt>
+        <dd>
+          <span>{{ requestForm.c_whealthfacility }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.firstchoice">Firstchoice</span></dt>
+        <dd>
+          <span>{{ requestForm.firstchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.secondchoice">Secondchoice</span></dt>
+        <dd>
+          <span>{{ requestForm.secondchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.thirdchoice">Thirdchoice</span></dt>
+        <dd>
+          <span>{{ requestForm.thirdchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.selfexpirence">Selfexpirence</span></dt>
+        <dd>
+          <span>{{ requestForm.selfexpirence | formatMediumDate }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.saposeexperience">Saposeexperience</span></dt>
+        <dd>
+          <span>{{ requestForm.saposeexperience }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.requestForm.no">No</span></dt>
+        <dd>
+          <span>{{ requestForm.no }}</span>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/request-form', requestForm.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

@@ -1,0 +1,109 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <div *ngIf="request">
+      <h2 data-cy="requestDetailsHeading"><span jhiTranslate="ahbetsApp.request.detail.title">Request</span></h2>
+
+      <hr />
+
+      <jhi-alert-error></jhi-alert-error>
+
+      <jhi-alert></jhi-alert>
+
+      <dl class="row-md jh-entity-details">
+        <dt><span jhiTranslate="global.field.id">ID</span></dt>
+        <dd>
+          <span>{{ request.id }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.name">Name</span></dt>
+        <dd>
+          <span>{{ request.name }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.sex">Sex</span></dt>
+        <dd>
+          <span>{{ request.sex }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.profession">Profession</span></dt>
+        <dd>
+          <span>{{ request.profession }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.cwzone">Cwzone</span></dt>
+        <dd>
+          <span>{{ request.cwzone }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.cwworeda">Cwworeda</span></dt>
+        <dd>
+          <span>{{ request.cwworeda }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.cwfacility">Cwfacility</span></dt>
+        <dd>
+          <span>{{ request.cwfacility }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.firstchoice">Firstchoice</span></dt>
+        <dd>
+          <span>{{ request.firstchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.code1">Code 1</span></dt>
+        <dd>
+          <span>{{ request.code1 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.secondchoice">Secondchoice</span></dt>
+        <dd>
+          <span>{{ request.secondchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.code2">Code 2</span></dt>
+        <dd>
+          <span>{{ request.code2 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.thirdchoice">Thirdchoice</span></dt>
+        <dd>
+          <span>{{ request.thirdchoice }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.code3">Code 3</span></dt>
+        <dd>
+          <span>{{ request.code3 }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.expryear">Expryear</span></dt>
+        <dd>
+          <span>{{ request.expryear }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.exprmonth">Exprmonth</span></dt>
+        <dd>
+          <span>{{ request.exprmonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.exprday">Exprday</span></dt>
+        <dd>
+          <span>{{ request.exprday }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.spexpryear">Spexpryear</span></dt>
+        <dd>
+          <span>{{ request.spexpryear }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.spexprmonth">Spexprmonth</span></dt>
+        <dd>
+          <span>{{ request.spexprmonth }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.spexprday">Spexprday</span></dt>
+        <dd>
+          <span>{{ request.spexprday }}</span>
+        </dd>
+        <dt><span jhiTranslate="ahbetsApp.request.file">File</span></dt>
+        <dd>
+          <div *ngIf="request.file">
+            <a (click)="openFile(request.file, request.fileContentType)">
+              <img [src]="'data:' + request.fileContentType + ';base64,' + request.file" style="max-width: 100%" alt="request image" />
+            </a>
+            {{ request.fileContentType }}, {{ byteSize(request.file) }}
+          </div>
+        </dd>
+      </dl>
+
+      <button type="submit" (click)="previousState()" class="btn btn-info" data-cy="entityDetailsBackButton">
+        <fa-icon icon="arrow-left"></fa-icon>&nbsp;<span jhiTranslate="entity.action.back">Back</span>
+      </button>
+
+      <button type="button" [routerLink]="['/request', request.id, 'edit']" class="btn btn-primary">
+        <fa-icon icon="pencil-alt"></fa-icon>&nbsp;<span jhiTranslate="entity.action.edit">Edit</span>
+      </button>
+    </div>
+  </div>
+</div>

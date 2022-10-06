@@ -1,0 +1,50 @@
+<div class="d-flex justify-content-center">
+    <div class="col-8">
+      <form name="choice" role="form" novalidate (ngSubmit)="save()" [formGroup]="form">
+        <h2 id="jhi-department-heading" >
+         fill your choice
+        </h2>
+  
+        
+         
+  
+          <div class="row mb-3" >
+            <label class="form-label" >Code</label>
+            <input type="text" (click)="fillUserNameNprof()" class="form-control" name="code" id="codeid"  formControlName="hos"  />
+          </div>
+  
+          <div class="row mb-3">
+            <label class="form-label"  >Fcility Name</label>
+            <input type="text" (click)="validateHosiptal()" class="form-control" name="depID" id="field_depID"  formControlName="hospitalName" [readonly]="true"/>
+          </div>
+  
+       <div class="row mb-3">
+            <label class="form-label"  >User Name</label>
+            <input type="text" class="form-control" name="user" id="user" formControlName="empChoic" [readonly]="true"/>
+          </div>
+  
+          <div class="row mb-3">
+            <label class="form-label"  >Profession</label>
+            <input type="text" class="form-control" name="prof" id="prof"  formControlName="profession" [readonly]="true" />
+          </div>
+        
+       
+  
+        <div>
+          <button type=reset id="cancel-save"  class="btn btn-secondary" >
+            <fa-icon icon="ban"></fa-icon>&nbsp;<span >Cancel</span>
+          </button>
+  
+          <button
+            type="submit"
+            id="save-entity"
+            data-cy="entityCreateSaveButton"
+            class="btn btn-primary"
+          >
+            <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+          </button>
+        </div>
+      
+      </form>
+    </div>
+  </div>

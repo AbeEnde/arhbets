@@ -1,0 +1,65 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-department-heading" data-cy="DepartmentCreateUpdateHeading" jhiTranslate="ahbetsApp.department.home.createOrEditLabel">
+        Create or edit a Department
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.depID" for="field_depID">Dep ID</label>
+          <input type="text" class="form-control" name="depID" id="field_depID" data-cy="depID" formControlName="depID" />
+          <div *ngIf="editForm.get('depID')!.invalid && (editForm.get('depID')!.dirty || editForm.get('depID')!.touched)"></div>
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.depName" for="field_depName">Dep Name</label>
+          <input type="text" class="form-control" name="depName" id="field_depName" data-cy="depName" formControlName="depName" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.available" for="field_available">Available</label>
+          <input type="number" class="form-control" name="available" id="field_available" data-cy="available" formControlName="available" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.relesed" for="field_relesed">Relesed</label>
+          <input type="number" class="form-control" name="relesed" id="field_relesed" data-cy="relesed" formControlName="relesed" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.assigned" for="field_assigned">Assigned</label>
+          <input type="number" class="form-control" name="assigned" id="field_assigned" data-cy="assigned" formControlName="assigned" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.department.hcode" for="field_hcode">Hcode</label>
+          <input type="text" class="form-control" name="hcode" id="field_hcode" data-cy="hcode" formControlName="hcode" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>

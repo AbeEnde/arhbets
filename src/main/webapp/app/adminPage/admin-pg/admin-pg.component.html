@@ -1,0 +1,164 @@
+
+
+<form action=""
+#frm="ngForm"
+>
+
+  <div class="btn" >
+    <fa-icon icon="edit"></fa-icon> 
+    <button class="btn page-secondary-action-btn" *ngIf="enableEdit " id="saveBtn" type="submit" (click)="enableEdit=false;saveResult()">
+      <fa-icon icon="save"></fa-icon> 
+      Save</button>
+
+    <a  class="table-row-action edit-action" *ngIf="!enableEdit" (click)="enableEditMethod()">
+      edit
+  </a>
+  
+  </div>
+
+  <div>
+    <button class="btn-primary" routerLink="/selected"> Auto Select </button>
+  </div>
+  
+  <table>
+  
+  <thead>
+    <tr>
+      <th class="tbl">sex</th>
+      <th class="tbl">c.w.zone</th>
+      <th class="tbl">c.w.woreda</th>
+      <th class="tbl">c.w.facility</th>
+     
+      <th class="tbl">ex.year</th>
+      <th class="tbl">ex.month</th>
+      <th class="tbl">ex.day</th>
+      <th class="tbl">sp.ex.year</th>
+      <th class="tbl">sp.ex.month</th>
+      <th class="tbl">sp.ex.day</th>
+      
+      <th class="tblR"> exprnce Value</th>
+      <th class="tblR">Place value</th>
+      <th class="tblR">Gender value</th>
+      <th class="tblR">spause point</th>
+      <th class="tblR">Medical value</th>
+      <th class="tblR">Total</th>
+    
+    
+    </tr>
+
+  </thead>
+  
+    <tr *ngFor="let result of lastData; let i=index;"  class="hover-highlight">
+  
+      <td>
+      <div >  {{ result.sex }} </div>
+      </td>
+  
+      <td>
+        <div >  {{ result.zone }} </div>
+        </td>
+  
+       <td>
+          <div >  {{ result.woreda }} </div>
+         </td>
+        <td>
+          <div >  {{ result.facility }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.expryear }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.exprmonth }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.exprday }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.spexpryear }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.spexprmonth }} </div>
+          </td>
+  
+          <td>
+            <div >  {{ result.spexprday }} </div>
+          </td>
+  
+          
+      <td >
+  
+        <div  *ngIf="enableEdit" >
+          <input class="input"  name = "expValue" [(ngModel)]="result.expValue " [ngModelOptions]="{standalone: true}" type="number" value = "{{result.expValue}}" >
+        </div>
+      <div *ngIf = "!enableEdit">
+        {{result.expValue}}
+      </div>
+  
+      </td>
+  
+      <td >
+        <div *ngIf="enableEdit " >
+          <input class="input" name="PlaceV" [(ngModel)]="result.PlaceV" [ngModelOptions]="{standalone: true}" type="number" value="{{result.PlaceV}}" >
+
+        </div>
+       <div *ngIf = "!enableEdit">
+          {{lastData[i].PlaceV}}
+       </div>
+      </td>
+  
+      <td>
+        <div *ngIf="enableEdit" >
+          <input class="input"  name="genderV" [(ngModel)]="result.genderV" [ngModelOptions]="{standalone: true}" type="number" value="{{result.genderV}}" >
+          
+        </div >
+        <div *ngIf = "!enableEdit">
+          {{lastData[i].genderV}}
+          </div>
+      </td>
+  
+      <td>
+        <div *ngIf="enableEdit" >
+          <input class="input"  name="spauseV" [(ngModel)]="result.spauseV" [ngModelOptions]="{standalone: true}" type="number" value="{{lastData[i].spauseV}}" >
+          
+        </div>
+       <div *ngIf = "!enableEdit">
+          {{lastData[i].spauseV}}
+       </div>    
+      </td>
+  
+      <td>
+        <div *ngIf="enableEdit" >
+          <input class="input"   name="medicalV" [(ngModel)]="result.medicalV" [ngModelOptions]="{standalone: true}" type="number" value="{{result.medicalV}}" >
+          
+        </div>
+        <div *ngIf = "!enableEdit">
+            {{lastData[i].medicalV}}
+        </div>      
+      </td>
+  
+      <td>
+        <div *ngIf="enableEdit" >
+          <input class="input"  name="totalV" [(ngModel)]="result.totalV" [ngModelOptions]="{standalone: true}" type="number" value= "{{result.totalV}}" >
+        </div>
+        <div *ngIf = "!enableEdit">
+            {{lastData[i].totalV}}
+        </div>        
+      </td>
+
+  
+      
+    </tr>
+  
+  </table>
+
+ 
+  
+  
+ 
+</form>
+

@@ -1,0 +1,37 @@
+
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+   <form [formGroup]="form">
+    <div>
+      <h2>Add Hospitals</h2>
+       <div>
+         <label for="hname"> Hospital Name:</label>
+         <input type="text" id="hname" name="hname" class="field" formControlName="hospitalName"><br>
+         <div *ngIf="form.get('hospitalName')!.invalid && (form.get('hospitalName')!.dirty || form.get('hospitalName')!.touched)">
+          <small class="form-text text-danger" *ngIf="form.get('hospitalName')?.errors?.required"> This field is required. </small>
+          <small class="form-text text-danger" [hidden]="!form.get('hospitalName')?.errors?.pattern"> This field should be a text. </small>
+        </div>
+       </div>
+  
+       <div>
+         <label for="code">Code</label>
+         <input type="text" id="code" class="field" formControlName="code"><br>
+         <div *ngIf="form.get('code')!.invalid && (form.get('code')!.dirty || form.get('code')!.touched)">
+          <small class="form-text text-danger" *ngIf="form.get('code')?.errors?.required"> This field is required. </small>
+          <small class="form-text text-danger" [hidden]="!form.get('code')?.errors?.pattern"> This field should be a number. </small>
+        </div>
+       </div>
+
+
+       <div>
+        <button  class="buttun" 
+         (click)="passFormData()"
+         [disabled]="!form.valid"
+         >  save </button>
+      </div>
+
+    </div>
+   </form>
+
+  </div>
+</div>

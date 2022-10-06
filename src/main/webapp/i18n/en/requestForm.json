@@ -1,0 +1,35 @@
+{
+  "ahbetsApp": {
+    "requestForm": {
+      "home": {
+        "title": "Request Forms",
+        "refreshListLabel": "Refresh list",
+        "createLabel": "Create a new Request Form",
+        "createOrEditLabel": "Create or edit a Request Form",
+        "notFound": "No Request Forms found"
+      },
+      "created": "A new Request Form is created with identifier {{ param }}",
+      "updated": "A Request Form is updated with identifier {{ param }}",
+      "deleted": "A Request Form is deleted with identifier {{ param }}",
+      "delete": {
+        "question": "Are you sure you want to delete Request Form {{ id }}?"
+      },
+      "detail": {
+        "title": "Request Form"
+      },
+      "id": "ID",
+      "name": "Name",
+      "sex": "Sex",
+      "profession": "Profession",
+      "c_wzone": "C Wzone",
+      "c_wworeda": "C Wworeda",
+      "c_whealthfacility": "C Whealthfacility",
+      "firstchoice": "Firstchoice",
+      "secondchoice": "Secondchoice",
+      "thirdchoice": "Thirdchoice",
+      "selfexpirence": "Selfexpirence",
+      "saposeexperience": "Saposeexperience",
+      "no": "No"
+    }
+  }
+}

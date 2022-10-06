@@ -1,0 +1,160 @@
+
+  
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+
+<h2>Amhara Regional State Health Burue Employe Transfer </h2>
+
+<form [formGroup]="form">
+  <div >
+
+    <div >
+      <label for="id">ID:</label>
+      <input type="text" id="name" name="name"  class="field" formControlName="userName"><br>
+      <div *ngIf="form.get('userName')!.invalid && (form.get('userName')!.dirty || form.get('userName')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('userName')?.errors?.required"> This field is required. </small>
+        
+      </div>
+    </div>
+
+    <div><label for="name">Name:</label>
+      <input type="text" id="name" name="name"  class="field" formControlName="name"><br>
+      <div *ngIf="form.get('name')!.invalid && (form.get('name')!.dirty || form.get('name')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('name')?.errors?.required"> This field is required. </small>
+        <small class="form-text text-danger" [hidden]="!form.get('name')?.errors?.pattern"> This field should be a text. </small>
+      </div>
+    </div>
+
+    <div>
+   <label for="sex">Sex:</label><br>
+ <select name="sex" id="sex" class="field" formControlName="sex"> 
+  <option value="Male">Male</option>
+  <option value="Female">Female</option>
+ </select>
+ <div *ngIf="form.get('sex')!.invalid && (form.get('sex')!.dirty || form.get('sex')!.touched)">
+  <small class="form-text text-danger" *ngIf="form.get('sex')?.errors?.required"> This field is required. </small>
+  <small class="form-text text-danger" [hidden]="!form.get('sex')?.errors?.number"> This field should be a number. </small>
+</div>
+    </div>
+
+    <div>
+      <label for="profession">profession</label>
+      <input type="text" id="profession" class="field" formControlName="profession"><br>
+      <div *ngIf="form.get('profession')!.invalid && (form.get('profession')!.dirty || form.get('profession')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('profession')?.errors?.required"> This field is required. </small>
+        <small class="form-text text-danger" [hidden]="!form.get('profession')?.errors?.number"> This field should be a number. </small>
+      </div>
+    </div>
+
+    <div>
+      <label for="cwzone">C.W zone</label>
+      <input type="text" id="cwzone" class="field" formControlName="zone"><br>
+
+      <div *ngIf="form.get('zone')!.invalid && (form.get('zone')!.dirty || form.get('zone')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('zone')?.errors?.required"> This field is required. </small>
+        <small class="form-text text-danger" [hidden]="!form.get('zone')?.errors?.number"> This field should be a number. </small>
+      </div>
+    </div>
+
+    <div>
+      <label for="cwworeda">C. W. woreda</label>
+      <input type="text" id="cwworeda" class="field" formControlName="woreda"><br>
+
+      <div *ngIf="form.get('woreda')!.invalid && (form.get('woreda')!.dirty || form.get('woreda')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('woreda')?.errors?.required"> This field is required. </small>
+        <small class="form-text text-danger" [hidden]="!form.get('woreda')?.errors?.number"> This field should be a number. </small>
+      </div>
+    </div>
+
+    <div>
+      <label for="cwfacility">C. W facilty</label>
+      <input type="text" id="cwfacility" class="field" formControlName="facility"><br>
+
+      <div *ngIf="form.get('facility')!.invalid && (form.get('facility')!.dirty || form.get('facility')!.touched)">
+        <small class="form-text text-danger" *ngIf="form.get('facility')?.errors?.required"> This field is required. </small>
+        <small class="form-text text-danger" [hidden]="!form.get('facility')?.errors?.number"> This field should be a number. </small>
+      </div>
+    </div>
+
+
+
+    
+
+    <div>
+      <label for="expr">Experience</label><br>
+      <label for="expryear" class="paralableexprf">Year</label>
+      <label for="exprmonth" class="paralableexpr">Month</label>
+      <label for="exprday" class="paralableexpr">Days</label><br>
+      
+      <input type="text" id="expryear" class="parafieldexp" formControlName="exprYear">
+ 
+
+     
+      <input type="text" id="exprmonth"class="para2field" formControlName="expMon">
+     
+     
+
+     
+      <input type="text" id="exprday" class="para3field" formControlName="expDay">
+    
+      </div>
+   
+
+    <div>
+      <label for="expr">Sapouse Experience</label><br>
+      <label for="spexpryear" class="paralableexprf">Year</label>
+      <label for="spexprmonth" class="paralableexpr">Month</label>
+      <label for="spexprday" class="paralableexpr">Days</label><br>
+     
+      <input type="text" id="spexpryear" class="parafieldexp" formControlName="spexpryear">
+      
+      
+
+      
+      <input type="text" id="spexprmonth"class="parafieldexp" formControlName="spexprmonth">
+     
+     
+
+     
+      <input type="text" id="spexprday" class="parafieldexp" formControlName="spexprday">
+     
+      </div>
+   
+    
+    <div>
+      <label for="chkbx">Medical</label>
+      <input (click)="toggleShow()" type="checkbox" >
+
+      <div *ngIf="isShown" class="row container-fluid"  id="divshow" >
+        <label for="file">Upload File</label>
+        <input type="file"  class="parafieldexp" formControlName="fileContentType"
+               id="file">
+     
+      </div>
+    </div>
+   
+
+    <div>
+      <button  class="buttun" type="reset" >  Reset </button>
+
+      
+
+       <button
+       type="submit"
+       id="save-entity"
+       data-cy="entityCreateSaveButton"
+       [disabled]="!form.valid"
+       class="buttun"
+       routerLink="/choice"
+       (click)="passFormData();holdData()"
+     >
+       <fa-icon icon="save"></fa-icon> &nbsp;<span>Next</span>
+     </button>
+    </div>
+
+  </div>
+
+</form>
+
+</div>
+</div>

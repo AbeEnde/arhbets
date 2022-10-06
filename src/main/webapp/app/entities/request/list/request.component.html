@@ -1,0 +1,119 @@
+<div>
+  <h2 id="page-heading" data-cy="RequestHeading">
+    <span jhiTranslate="ahbetsApp.request.home.title">Requests</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ahbetsApp.request.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-request"
+        [routerLink]="['/request/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ahbetsApp.request.home.createLabel"> Create a new Request </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="requests?.length === 0">
+    <span jhiTranslate="ahbetsApp.request.home.notFound">No requests found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="requests && requests.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.sex">Sex</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.profession">Profession</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.cwzone">Cwzone</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.cwworeda">Cwworeda</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.cwfacility">Cwfacility</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.firstchoice">Firstchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.code1">Code 1</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.secondchoice">Secondchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.code2">Code 2</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.thirdchoice">Thirdchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.code3">Code 3</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.expryear">Expryear</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.exprmonth">Exprmonth</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.exprday">Exprday</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.spexpryear">Spexpryear</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.spexprmonth">Spexprmonth</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.spexprday">Spexprday</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.request.file">File</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let request of requests; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/request', request.id, 'view']">{{ request.id }}</a>
+          </td>
+          <td>{{ request.name }}</td>
+          <td>{{ request.sex }}</td>
+          <td>{{ request.profession }}</td>
+          <td>{{ request.cwzone }}</td>
+          <td>{{ request.cwworeda }}</td>
+          <td>{{ request.cwfacility }}</td>
+          <td>{{ request.firstchoice }}</td>
+          <td>{{ request.code1 }}</td>
+          <td>{{ request.secondchoice }}</td>
+          <td>{{ request.code2 }}</td>
+          <td>{{ request.thirdchoice }}</td>
+          <td>{{ request.code3 }}</td>
+          <td>{{ request.expryear }}</td>
+          <td>{{ request.exprmonth }}</td>
+          <td>{{ request.exprday }}</td>
+          <td>{{ request.spexpryear }}</td>
+          <td>{{ request.spexprmonth }}</td>
+          <td>{{ request.spexprday }}</td>
+          <td>
+            <a *ngIf="request.file" (click)="openFile(request.file, request.fileContentType)">
+              <img [src]="'data:' + request.fileContentType + ';base64,' + request.file" style="max-height: 30px" alt="request image" />
+            </a>
+            <span *ngIf="request.file">{{ request.fileContentType }}, {{ byteSize(request.file) }}</span>
+          </td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/request', request.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/request', request.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(request)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

@@ -1,0 +1,29 @@
+
+.tbl{
+    width: 20%;
+    background-color: #131202;
+    color: white;
+   padding: 10px;
+}
+
+.tblR{
+    width: 20%;
+    background-color: #1475ec;
+    color: white;
+   padding: 10px;
+}
+
+.btn{
+    position: absolute;
+    background-color: aqua;
+    top: calc(100% - 94%);
+    left: calc(100% - 110px);
+}
+.scroll{
+    position: absolute;
+    overflow: scroll;
+}
+
+.input{
+    width: 70px;
+}

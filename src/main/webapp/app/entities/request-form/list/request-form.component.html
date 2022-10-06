@@ -1,0 +1,100 @@
+<div>
+  <h2 id="page-heading" data-cy="RequestFormHeading">
+    <span jhiTranslate="ahbetsApp.requestForm.home.title">Request Forms</span>
+
+    <div class="d-flex justify-content-end">
+      <button class="btn btn-info me-2" (click)="loadAll()" [disabled]="isLoading">
+        <fa-icon icon="sync" [spin]="isLoading"></fa-icon>
+        <span jhiTranslate="ahbetsApp.requestForm.home.refreshListLabel">Refresh List</span>
+      </button>
+
+      <button
+        id="jh-create-entity"
+        data-cy="entityCreateButton"
+        class="btn btn-primary jh-create-entity create-request-form"
+        [routerLink]="['/request-form/new']"
+      >
+        <fa-icon icon="plus"></fa-icon>
+        <span jhiTranslate="ahbetsApp.requestForm.home.createLabel"> Create a new Request Form </span>
+      </button>
+    </div>
+  </h2>
+
+  <jhi-alert-error></jhi-alert-error>
+
+  <jhi-alert></jhi-alert>
+
+  <div class="alert alert-warning" id="no-result" *ngIf="requestForms?.length === 0">
+    <span jhiTranslate="ahbetsApp.requestForm.home.notFound">No requestForms found</span>
+  </div>
+
+  <div class="table-responsive" id="entities" *ngIf="requestForms && requestForms.length > 0">
+    <table class="table table-striped" aria-describedby="page-heading">
+      <thead>
+        <tr>
+          <th scope="col"><span jhiTranslate="global.field.id">ID</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.name">Name</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.sex">Sex</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.profession">Profession</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.c_wzone">C Wzone</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.c_wworeda">C Wworeda</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.c_whealthfacility">C Whealthfacility</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.firstchoice">Firstchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.secondchoice">Secondchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.thirdchoice">Thirdchoice</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.selfexpirence">Selfexpirence</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.saposeexperience">Saposeexperience</span></th>
+          <th scope="col"><span jhiTranslate="ahbetsApp.requestForm.no">No</span></th>
+          <th scope="col"></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngFor="let requestForm of requestForms; trackBy: trackId" data-cy="entityTable">
+          <td>
+            <a [routerLink]="['/request-form', requestForm.id, 'view']">{{ requestForm.id }}</a>
+          </td>
+          <td>{{ requestForm.name }}</td>
+          <td>{{ requestForm.sex }}</td>
+          <td>{{ requestForm.profession }}</td>
+          <td>{{ requestForm.c_wzone }}</td>
+          <td>{{ requestForm.c_wworeda }}</td>
+          <td>{{ requestForm.c_whealthfacility }}</td>
+          <td>{{ requestForm.firstchoice }}</td>
+          <td>{{ requestForm.secondchoice }}</td>
+          <td>{{ requestForm.thirdchoice }}</td>
+          <td>{{ requestForm.selfexpirence | formatMediumDate }}</td>
+          <td>{{ requestForm.saposeexperience }}</td>
+          <td>{{ requestForm.no }}</td>
+          <td class="text-end">
+            <div class="btn-group">
+              <button
+                type="submit"
+                [routerLink]="['/request-form', requestForm.id, 'view']"
+                class="btn btn-info btn-sm"
+                data-cy="entityDetailsButton"
+              >
+                <fa-icon icon="eye"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.view">View</span>
+              </button>
+
+              <button
+                type="submit"
+                [routerLink]="['/request-form', requestForm.id, 'edit']"
+                class="btn btn-primary btn-sm"
+                data-cy="entityEditButton"
+              >
+                <fa-icon icon="pencil-alt"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.edit">Edit</span>
+              </button>
+
+              <button type="submit" (click)="delete(requestForm)" class="btn btn-danger btn-sm" data-cy="entityDeleteButton">
+                <fa-icon icon="times"></fa-icon>
+                <span class="d-none d-md-inline" jhiTranslate="entity.action.delete">Delete</span>
+              </button>
+            </div>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+</div>

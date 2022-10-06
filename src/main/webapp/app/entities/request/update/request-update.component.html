@@ -1,0 +1,205 @@
+<div class="d-flex justify-content-center">
+  <div class="col-8">
+    <form name="editForm" role="form" novalidate (ngSubmit)="save()" [formGroup]="editForm">
+      <h2 id="jhi-request-heading" data-cy="RequestCreateUpdateHeading" jhiTranslate="ahbetsApp.request.home.createOrEditLabel">
+        Create or edit a Request
+      </h2>
+
+      <div>
+        <jhi-alert-error></jhi-alert-error>
+
+        <div class="row mb-3" [hidden]="editForm.get('id')!.value == null">
+          <label class="form-label" jhiTranslate="global.field.id" for="field_id">ID</label>
+          <input type="number" class="form-control" name="id" id="field_id" data-cy="id" formControlName="id" [readonly]="true" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.name" for="field_name">Name</label>
+          <input type="text" class="form-control" name="name" id="field_name" data-cy="name" formControlName="name" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.sex" for="field_sex">Sex</label>
+          <input type="text" class="form-control" name="sex" id="field_sex" data-cy="sex" formControlName="sex" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.profession" for="field_profession">Profession</label>
+          <input
+            type="text"
+            class="form-control"
+            name="profession"
+            id="field_profession"
+            data-cy="profession"
+            formControlName="profession"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.cwzone" for="field_cwzone">Cwzone</label>
+          <input type="text" class="form-control" name="cwzone" id="field_cwzone" data-cy="cwzone" formControlName="cwzone" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.cwworeda" for="field_cwworeda">Cwworeda</label>
+          <input type="text" class="form-control" name="cwworeda" id="field_cwworeda" data-cy="cwworeda" formControlName="cwworeda" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.cwfacility" for="field_cwfacility">Cwfacility</label>
+          <input
+            type="text"
+            class="form-control"
+            name="cwfacility"
+            id="field_cwfacility"
+            data-cy="cwfacility"
+            formControlName="cwfacility"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.firstchoice" for="field_firstchoice">Firstchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="firstchoice"
+            id="field_firstchoice"
+            data-cy="firstchoice"
+            formControlName="firstchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.code1" for="field_code1">Code 1</label>
+          <input type="text" class="form-control" name="code1" id="field_code1" data-cy="code1" formControlName="code1" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.secondchoice" for="field_secondchoice">Secondchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="secondchoice"
+            id="field_secondchoice"
+            data-cy="secondchoice"
+            formControlName="secondchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.code2" for="field_code2">Code 2</label>
+          <input type="text" class="form-control" name="code2" id="field_code2" data-cy="code2" formControlName="code2" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.thirdchoice" for="field_thirdchoice">Thirdchoice</label>
+          <input
+            type="text"
+            class="form-control"
+            name="thirdchoice"
+            id="field_thirdchoice"
+            data-cy="thirdchoice"
+            formControlName="thirdchoice"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.code3" for="field_code3">Code 3</label>
+          <input type="text" class="form-control" name="code3" id="field_code3" data-cy="code3" formControlName="code3" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.expryear" for="field_expryear">Expryear</label>
+          <input type="text" class="form-control" name="expryear" id="field_expryear" data-cy="expryear" formControlName="expryear" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.exprmonth" for="field_exprmonth">Exprmonth</label>
+          <input type="text" class="form-control" name="exprmonth" id="field_exprmonth" data-cy="exprmonth" formControlName="exprmonth" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.exprday" for="field_exprday">Exprday</label>
+          <input type="text" class="form-control" name="exprday" id="field_exprday" data-cy="exprday" formControlName="exprday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.spexpryear" for="field_spexpryear">Spexpryear</label>
+          <input
+            type="text"
+            class="form-control"
+            name="spexpryear"
+            id="field_spexpryear"
+            data-cy="spexpryear"
+            formControlName="spexpryear"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.spexprmonth" for="field_spexprmonth">Spexprmonth</label>
+          <input
+            type="text"
+            class="form-control"
+            name="spexprmonth"
+            id="field_spexprmonth"
+            data-cy="spexprmonth"
+            formControlName="spexprmonth"
+          />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.spexprday" for="field_spexprday">Spexprday</label>
+          <input type="text" class="form-control" name="spexprday" id="field_spexprday" data-cy="spexprday" formControlName="spexprday" />
+        </div>
+
+        <div class="row mb-3">
+          <label class="form-label" jhiTranslate="ahbetsApp.request.file" for="field_file">File</label>
+          <div>
+            <img
+              [src]="'data:' + editForm.get('fileContentType')!.value + ';base64,' + editForm.get('file')!.value"
+              style="max-height: 100px"
+              *ngIf="editForm.get('file')!.value"
+              alt="request image"
+            />
+            <div *ngIf="editForm.get('file')!.value" class="form-text text-danger clearfix">
+              <span class="pull-start">{{ editForm.get('fileContentType')!.value }}, {{ byteSize(editForm.get('file')!.value) }}</span>
+              <button
+                type="button"
+                (click)="clearInputImage('file', 'fileContentType', 'file_file')"
+                class="btn btn-secondary btn-xs pull-end"
+              >
+                <fa-icon icon="times"></fa-icon>
+              </button>
+            </div>
+            <input
+              type="file"
+              id="file_file"
+              data-cy="file"
+              (change)="setFileData($event, 'file', true)"
+              accept="image/*"
+              jhiTranslate="entity.action.addimage"
+            />
+          </div>
+          <input type="hidden" class="form-control" name="file" id="field_file" data-cy="file" formControlName="file" />
+          <input type="hidden" class="form-control" name="fileContentType" id="field_fileContentType" formControlName="fileContentType" />
+        </div>
+      </div>
+
+      <div>
+        <button type="button" id="cancel-save" data-cy="entityCreateCancelButton" class="btn btn-secondary" (click)="previousState()">
+          <fa-icon icon="ban"></fa-icon>&nbsp;<span jhiTranslate="entity.action.cancel">Cancel</span>
+        </button>
+
+        <button
+          type="submit"
+          id="save-entity"
+          data-cy="entityCreateSaveButton"
+          [disabled]="editForm.invalid || isSaving"
+          class="btn btn-primary"
+        >
+          <fa-icon icon="save"></fa-icon>&nbsp;<span jhiTranslate="entity.action.save">Save</span>
+        </button>
+      </div>
+    </form>
+  </div>
+</div>
